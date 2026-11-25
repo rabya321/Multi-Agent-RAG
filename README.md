@@ -25,11 +25,12 @@ Environment variables used across components:
 - CERT_PATH (optional if TLS cert pinning is required)
 
 ## Quick setup
+git clone https://github.com/<username>/<repo-name>.git
+cd Multi-Agent-RAG
 
-```powershell
-cd c:\Users\alir\Desktop\csc-clm-agent
 uv venv .venv
 .\.venv\Scripts\Activate.ps1
+
 uv pip install python-dotenv httpx pydantic langgraph langchain-core langchain-openai litellm qdrant-client tiktoken pandas scipy ragas datasets python-pptx pypdfium2 pyyaml
 ```
 

@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentic-rag"
+version = "0.1.0"
+description = "Multi-agent RAG system with wiki, papers, and orchestration components."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "datasets",
+  "docling",
+  "httpx",
+  "langchain",
+  "langchain-core",
+  "langchain-openai",
+  "langchain-qdrant",
+  "langchain-text-splitters",
+  "langgraph",
+  "litellm",
+  "pandas",
+  "pydantic>=2",
+  "pypdfium2",
+  "python-dotenv",
+  "python-pptx",
+  "pyyaml",
+  "qdrant-client",
+  "ragas",
+  "scipy",
+  "tiktoken",
+  "typing-extensions",
+]
+
+[tool.setuptools.packages.find]
+where = ["orchestrator", "papers_agent", "wiki_agent"]
+include = ["orchestrator*", "agent_rag*", "ingestion_pipeline*", "retrieval_agent*"]
+
+[tool.agentic-rag.system-dependencies]
+libreoffice = "Required by wiki ingestion for PPTX -> PDF conversion; install separately (not a pip dependency)."
+windows_install = "winget install --id TheDocumentFoundation.LibreOffice -e"
+libreoffice_path_env = "Set LIBREOFFICE_PATH if soffice is not on PATH."
